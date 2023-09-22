@@ -2,30 +2,39 @@
 Geo-Statistical Modeling of Mosquito Risk Epicenters in Selected Kenyan Localities
 
 ## Summary
+
 The Geospatial Risk Analysis of Mosquitoes in Kenya (GRAMIK) tool is a mathematical and computational interface for quantifying the risk of mosquito occurrence across geographic locations. This computational approach employs K-Nearest Neighbors (KNN) regression models and integrates spatio-temporal data with environmental factors, namely elevation and proximity to water bodies. The risk is represented on a scale ranging from 1 (low) to 3 (high). The algorithm successfully adapts to the dynamic nature of risk factors by accounting for monthly variations and provides a reliable predictive framework that can be extended to other epidemiological studies.
 
 ## Dataset Collection and Methodology
+
 To facilitate the application of our computational model for predicting mosquito risk in Kenya, a comprehensive dataset was used, integrating a multitude of factors deemed relevant to the risk calculation. These factors include but are not limited to geographical coordinates, elevation, proximity to water bodies, climate type, and monthly risk levels. The dataset presently encompasses 40 Kenyan localities, each meticulously characterized to ensure robustness in the risk assessment.
 
 ### Mosquito Breeding Grounds: 
+
 Information on endemic regions in Kenya where mosquitoes predominantly breed was extracted from a study available on NCBI.
 
 ### Disease-Causing Mosquito Species and Vectors: 
+
 Species-specific data were obtained from NCBI and included in the dataset to reflect the heterogeneity in disease risk across species.
 
 ### Densities of Mosquito Vectors: 
+
 Data on mosquito density were sourced from a study in Wiley Online Library.
 
 ### Predictive Models for Mosquito Density: 
+
 Empirical models from NCBI were reviewed to inform the algorithm's predictive capabilities.
 
 ### Seasonal Abundance: 
+
 Seasonal factors were accounted for based on a study available on BioMed Central.
 
 ### Mosquito Occurrence Dataset: 
+
 Additional occurrence data were obtained from the GBIF database.
 
 ### Full List of Datasets: 
+
 Mosquito Breeding Grounds
 https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6627689/#:~:text=Mosquito%2DBorne%20Disease%20Endemic%20Regions%20in%20Kenya&text=Some%20of%20these%20regions%20include,breeding%20areas%20for%20mosquito%20species. 
 
@@ -50,13 +59,13 @@ mosquito occurrence dataset
 
 The final dataset comprises multiple attributes for each locality, such as:
 
-location: Name of the locality
-region: Geographical region within Kenya
-Latitude and Longitude: Geographic coordinates
-elevation: Elevation in meters above sea level
-climate: Köppen Climate Classification
-january to december: Monthly mosquito risk level (Low/Moderate/High)
-dist_from_water: Distance from the nearest water body in meters
+* location: Name of the locality
+* region: Geographical region within Kenya
+* Latitude and Longitude: Geographic coordinates
+* elevation: Elevation in meters above sea level
+* climate: Köppen Climate Classification
+* january to december: Monthly mosquito risk level (Low/Moderate/High)
+* dist_from_water: Distance from the nearest water body in meters
 
 ## Methodology
 
