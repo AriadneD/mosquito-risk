@@ -59,13 +59,13 @@ mosquito occurrence dataset
 
 The final dataset comprises multiple attributes for each locality, such as:
 
-* location: Name of the locality
-* region: Geographical region within Kenya
-* Latitude and Longitude: Geographic coordinates
-* elevation: Elevation in meters above sea level
-* climate: Köppen Climate Classification
-* january to december: Monthly mosquito risk level (Low/Moderate/High)
-* dist_from_water: Distance from the nearest water body in meters
+- location: Name of the locality
+- region: Geographical region within Kenya
+- Latitude and Longitude: Geographic coordinates
+- elevation: Elevation in meters above sea level
+- climate: Köppen Climate Classification
+- january to december: Monthly mosquito risk level (Low/Moderate/High)
+- dist_from_water: Distance from the nearest water body in meters
 
 ## Methodology
 
