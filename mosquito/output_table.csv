@@ -1,0 +1,41 @@
+location,region,Latitude,Longitude,elevation,climate,january,february,march,april,may,june,july,august,september,october,november,december,dist_from_water
+Archers Post,North,-0.6708,37.6735,818,Hot semi-arid climates,Moderate,Moderate,Moderate,High,Low,Low,Low,Low,Low,High,High,Moderate,15926.960342096689
+Bissil,South,-2.1236,36.7979,1635,Hot semi-arid climates,Moderate,Moderate,Moderate,High,Low,Low,Low,Low,Low,High,High,Moderate,50706.87753926056
+Chemogoch,Central,0.1667,35.2667,1605,Tropical savanna climate,Low,Low,Moderate,High,High,High,Moderate,Low,Moderate,High,High,Moderate,15178.681501842828
+Eldoret,North Rift,0.5143,35.2698,2090,Oceanic climate,Moderate,Moderate,Moderate,Moderate,Moderate,Moderate,Moderate,Low,Moderate,Moderate,Moderate,Moderate,26779.1396785912
+Iten,North Rift,0.6708,35.5081,2400,Oceanic climate,Moderate,Moderate,Moderate,Moderate,Moderate,Moderate,Moderate,Low,Moderate,Moderate,Moderate,Moderate,13683.265705391423
+Kaaga,Eastern,0.1667,37.9833,1563,Warm-summer Mediterranean climate,Low,Low,Moderate,High,High,High,Low,Low,Low,Low,Low,Low,59548.3377299588
+Kipungani,Coast,-2.5222,40.9731,22,Tropical savanna climate,Low,Low,Moderate,High,High,High,Moderate,Low,Moderate,High,High,Moderate,34704.834468482964
+Kiriaini,Central,-0.6833,37.0167,1871,Oceanic climate,Moderate,Moderate,Moderate,Moderate,Moderate,Moderate,Moderate,Low,Moderate,Moderate,Moderate,Moderate,16116.961028280875
+Kiserian,South,-1.4254,36.7589,1874,Subtropical highland oceanic climate,Low,Low,Low,High,High,Moderate,Moderate,Moderate,Moderate,Moderate,Low,Low,25645.38932138288
+Kisii,Western,-0.6794,34.7717,1700,Tropical rainforest climate,High,High,High,High,High,High,High,High,High,High,High,High,38446.56816313078
+Kisiwani,Coast,-3.1333,40.1333,30,Tropical savanna climate,Low,Low,Moderate,High,High,High,Moderate,Low,Moderate,High,High,Moderate,78003.67157408374
+Konjero se Ekonjero,Nyanza,0.1667,34.5833,1574,Tropical rainforest climate,High,High,High,High,High,High,High,High,High,High,High,High,47846.21358732403
+Kosipirr,Rift Valley,-1.1833,36.9167,722,Hot desert climates,Low,Low,Low,Low,Low,Low,Low,Low,Low,Low,Low,Low,5329.718269338179
+Lodwar,North Rift,3.1191,35.5974,523,Hot desert climates,Low,Low,Low,Low,Low,Low,Low,Low,Low,Low,Low,Low,82574.89697100909
+Lokichar,North Rift,4.2042,35.7225,764,Hot desert climates,Low,Low,Low,Low,Low,Low,Low,Low,Low,Low,Low,Low,85956.46319662528
+Loperot,Rift Valley,-1.1833,36.9167,632,Hot desert climates,Low,Low,Low,Low,Low,Low,Low,Low,Low,Low,Low,Low,5329.718269338179
+Makindu,Eastern,-2.2833,37.8333,1070,Hot semi-arid climates,Moderate,Moderate,Moderate,High,Low,Low,Low,Low,Low,High,High,Moderate,86331.54252927673
+Malindi,Coast,-3.2175,40.1197,7,Tropical savanna climate,Low,Low,Moderate,High,High,High,Moderate,Low,Moderate,High,High,Moderate,87416.0084260242
+Marinde,Coast,-4.05,39.6667,1341,Tropical monsoon climate,Moderate,Moderate,Moderate,High,High,High,High,High,High,High,High,Moderate,70384.66923465012
+Matasia,South,-1.4667,36.7,1883,Subtropical highland oceanic climate,Low,Low,Low,High,High,Moderate,Moderate,Moderate,Moderate,Moderate,Low,Low,26408.293063735284
+Meru,Eastern,-0.0617,37.6418,1524,Warm-summer Mediterranean climate,Low,Low,Moderate,High,High,High,Low,Low,Low,Low,Low,Low,19384.16417174985
+Muriling,Rift Valley,-1.1833,36.9167,688,Hot desert climates,Low,Low,Low,Low,Low,Low,Low,Low,Low,Low,Low,Low,5329.718269338179
+Mutet,Rift Valley,-1.1833,36.9167,1360,Tropical rainforest climate,High,High,High,High,High,High,High,High,High,High,High,High,5329.718269338179
+Mutomo,Eastern,-1.4167,38.1667,1020,Hot semi-arid climates,Moderate,Moderate,Moderate,High,Low,Low,Low,Low,Low,High,High,Moderate,80069.69707868129
+Nairobi,Nairobi,-1.2833,36.8167,1795,Subtropical highland oceanic climate,Low,Low,Low,High,High,Moderate,Moderate,Moderate,Moderate,Moderate,Low,Low,20405.826167829164
+Nanyuki,Central,0.0167,37.0667,1946,Warm-summer Mediterranean climate,Low,Low,Moderate,High,High,High,Low,Low,Low,Low,Low,Low,32930.906149162445
+Ndare,Eastern,-0.1667,37.5833,2356,Warm-summer Mediterranean climate,Low,Low,Moderate,High,High,High,Low,Low,Low,Low,Low,Low,14648.758481755342
+Nyabera,Nyanza,-0.2333,34.7667,1505,Tropical rainforest climate,High,High,High,High,High,High,High,High,High,High,High,High,5831.74304487893
+Nyeri,Central,-0.4167,36.95,1750,Oceanic climate,Moderate,Moderate,Moderate,Moderate,Moderate,Moderate,Moderate,Low,Moderate,Moderate,Moderate,Moderate,19562.05876752222
+Olepolos,South,-1.4167,36.6833,1547,Subtropical highland oceanic climate,Low,Low,Low,High,High,Moderate,Moderate,Moderate,Moderate,Moderate,Low,Low,20553.28393679789
+Othaya,Central,-0.5667,36.95,1828,Oceanic climate,Moderate,Moderate,Moderate,Moderate,Moderate,Moderate,Moderate,Low,Moderate,Moderate,Moderate,Moderate,5221.244272701437
+Oyugis,Nyanza,-0.5,34.75,1452,Tropical rainforest climate,High,High,High,High,High,High,High,High,High,High,High,High,20195.375713655758
+Paulo,Nyanza,-2,39,1509,Tropical monsoon climate,Moderate,Moderate,Moderate,High,High,High,High,High,High,High,High,Moderate,156827.79099863832
+Ruiru,Central,-1.15,36.9667,1565,Warm-summer Mediterranean climate,Low,Low,Moderate,High,High,High,Low,Low,Low,Low,Low,Low,2605.908532851585
+Shela,Coast,-2.2833,40.8667,14,Tropical savanna climate,Low,Low,Moderate,High,High,High,Moderate,Low,Moderate,High,High,Moderate,24817.767867870472
+Siaya,Nyanza,-0.0606,34.2889,1224,Tropical monsoon climate,Moderate,Moderate,Moderate,High,High,High,High,High,High,High,High,Moderate,19169.415869180128
+Sidindi,Nyanza,-0.2333,34.7667,1233,Tropical monsoon climate,Moderate,Moderate,Moderate,High,High,High,High,High,High,High,High,Moderate,5831.74304487893
+Ugunja,Nyanza,-0.15,34.3,1273,Tropical monsoon climate,Moderate,Moderate,Moderate,High,High,High,High,High,High,High,High,Moderate,27737.91212079158
+Voi,Coast,-3.3833,38.5667,1900,Hot semi-arid climates,Moderate,Moderate,Moderate,High,Low,Low,Low,Low,Low,High,High,Moderate,92810.9110056317
+Wundanyi,Coast,-3.4,38.3667,1397,Subtropical highland oceanic climate,Low,Low,Low,High,High,Moderate,Moderate,Moderate,Moderate,Moderate,Low,Low,70923.73748373518

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mosquito Risk Map</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <style>
+        html, body {
+        margin: 0;
+        padding: 0;
+        }
+
+        #map {
+        width: 100%;
+        height: 400px;
+        }
+    </style>
+</head>
+<body>
+<h1>Geo-Statistical Modeling of Mosquito Risk Epicenters in Selected Kenyan Localities</h1>
+<div id="selected-date-box">
+    <strong>Currently selected date:</strong> <span id="selected-date-display"></span>
+</div>
+<form id="dateForm">
+    <input type="date" id="selectedDate">
+    <input type="submit" value="Update Risk">
+</form>
+
+<button id="clearCustomPointsBtn">Clear Custom Points</button>
+    
+<div id="map">
+    <div id="map-key" style="position: absolute; bottom: 20px; right: 20px; width: 200px; z-index: 1000; padding: 10px; background: white; border: 1px solid black;">
+        <div id="color-gradient" style="width: 200px; height: 20px; background: linear-gradient(to right, yellow, red);"></div>
+        <div id="key-text">
+            <span style="float: left;">1 (Low Risk)</span>
+            <span style="float: right;">3 (High Risk)</span>
+        </div>
+    </div>
+</div>
+
+<div id="location-info">
+    <h2>Location Information</h2>
+    <div id="location-details"></div>
+</div>
+
+<script>
+var map = L.map('map').setView([0.0236, 37.9062], 6);  // Centered around Kenya
+map.invalidateSize();
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+}).addTo(map);
+
+// Interpolate color of markers
+function interpolateColor(value) {
+    // Assuming value is between 1 and 3
+    const maxVal = 3;
+    const minVal = 1;
+    const greenChannel = Math.floor(255 * (maxVal - value) / (maxVal - minVal));
+    return `rgb(255, ${greenChannel}, 0)`;
+}
+
+// Initialize an array to store the markers
+var markers = [];
+
+// Initialize an array to store the custom markers
+var customs = [];
+
+// Function to add markers to the map
+function addMarkers(data) {
+    data.forEach(function(item) {
+        var color = interpolateColor(item.risk_output);
+        
+        var marker = L.circleMarker([item.Latitude, item.Longitude], {
+            color: color,
+            fillColor: color,
+            fillOpacity: 0.5
+        }).addTo(map).bindTooltip(item.location + ': ' + item.risk_output.toFixed(2));
+
+        // Add click event to marker
+        marker.on('click', function() {
+            fetch(`/get-location-info?location=${item.location}`)
+                .then(response => response.json())
+                .then(data => {
+                    // Populate the location-info div
+                    document.getElementById('location-details').innerHTML = `
+                    <strong>Name:</strong> ${data.location} <br>
+                    <strong>Region:</strong> ${data.region} <br>
+                    <strong>Latitude:</strong> ${data.Latitude} <br>
+                    <strong>Longitude:</strong> ${data.Longitude} <br>
+                    <strong>Elevation:</strong> ${data.elevation} <br>
+                    <strong>Climate:</strong> ${data.climate} <br>
+                    `;
+                });
+        });
+        
+        // Store the marker for future reference
+        markers.push(marker);
+    });
+}
+
+// Add initial markers
+var riskData = {{ risk_data|tojson|safe }};
+addMarkers(riskData);
+
+// Set default date
+const today = new Date().toISOString().split('T')[0];
+document.getElementById('selected-date-display').textContent = today;
+// Set default date for the display box
+document.getElementById('selected-date-display').textContent = today;
+
+// Event listener for the date selector
+document.getElementById('dateForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    var selectedDate = document.getElementById('selectedDate').value;
+
+    // Update the "Currently selected date" display box
+    document.getElementById('selected-date-display').textContent = selectedDate;
+    
+    fetch(`/` + `?date=${selectedDate}`)
+        .then(response => response.json())
+        .then(data => {
+            // Clear existing markers
+            markers.forEach(marker => marker.remove());
+            markers = [];
+
+            // Add new markers using the updated 'data'
+            addMarkers(data);
+
+            // Update risk for custom markers based on the selected date
+            updateCustomMarkersRisk(selectedDate);
+
+        });
+});
+
+// Event listener for custom location marker
+
+map.on('click', function(e) {
+    console.log("Clicked!")
+    var lat = e.latlng.lat;
+    var lng = e.latlng.lng;
+
+    
+    // Check if the clicked point is too close to any existing marker
+    var isTooClose = false;
+    for (var i = 0; i < markers.length; i++) {
+        var markerLat = markers[i].getLatLng().lat;
+        var markerLng = markers[i].getLatLng().lng;
+        
+        var distance = map.distance(e.latlng, markers[i].getLatLng());
+        
+        // Define a threshold for what you consider "too close" (in meters)
+        var threshold = 10; // Adjust this value according to your needs
+        if (distance < threshold) {
+            isTooClose = true;
+            break;
+        }
+    }
+    for (var i = 0; i < customs.length; i++) {
+        var markerLat = customs[i].getLatLng().lat;
+        var markerLng = customs[i].getLatLng().lng;
+        
+        var distance = map.distance(e.latlng, customs[i].getLatLng());
+        
+        // Define a threshold for what you consider "too close" (in meters)
+        var threshold = 10; // Adjust this value according to your needs
+        if (distance < threshold) {
+            isTooClose = true;
+            break;
+        }
+    }
+
+    // Fetch risk for the new location
+    if (!isTooClose) {
+        fetch('/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: `lat=${lat}&lng=${lng}`
+        })
+        .then(response => response.json())
+        .then(data => {
+            var color = interpolateColor(data.risk_output);
+
+            var custom = L.circleMarker([lat, lng], {
+                color: color,
+                fillColor: color,
+                fillOpacity: 0.5
+            }).addTo(map);
+            custom.bindTooltip('Risk: ' + data.risk_output.toFixed(2));
+
+            // Add the marker to the markers array
+            customs.push(custom);
+        });
+    }
+});
+
+// Updates the custom markers whenever a new date is selected
+
+
+function updateCustomMarkersRisk(date) {
+    console.log('what are we doing here')
+    customs.forEach(custom => {
+        let lat = custom.getLatLng().lat;
+        let lng = custom.getLatLng().lng;
+
+        fetch(`/custom_point_risk?date=${date}&lat=${lat}&lng=${lng}`)
+        .then(response => response.json())
+        .then(data => {
+            console.log("Data:", data)
+            var color = interpolateColor(data);
+
+            custom.setStyle({
+                color: color,
+                fillColor: color,
+                fillOpacity: 0.5
+            });
+
+            custom.setTooltipContent('Risk: ' + data.toFixed(2));
+        })
+        .catch(error => {
+            console.error('There was an error updating the risk for a marker:', error);
+        });
+    });
+}
+
+// Clear points when button clicked
+
+document.getElementById('clearCustomPointsBtn').addEventListener('click', function() {
+    // Loop through custom markers and remove them from the map
+    customs.forEach(custom => custom.remove());
+
+    // Clear the customMarkers array
+    customs = [];
+});
+
+</script>
+
+</body>
+</html>
